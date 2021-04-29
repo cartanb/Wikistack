@@ -15,7 +15,7 @@ const Page = db.define('page', {
     allowNull: false,
   },
   status: {
-    type: Sequelize.BOOLEAN,
+    type: Sequelize.ENUM,
     allowNull: false,
   },
 });
@@ -41,4 +41,6 @@ const User = db.define('user', {
 
 module.exports = {
   db,
+  Page,
+  User,
 };

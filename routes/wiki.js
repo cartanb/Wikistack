@@ -2,10 +2,13 @@ const router = require('express').Router();
 const { Page } = require('../models');
 const addPage = require('../views/addPage');
 const wikipage = require('../views/wikipage');
+const main = require('../views/main');
 
 // get /wiki
-router.get('/', (req, res, next) => {
-  res.send('whatever');
+router.get('/', async (req, res, next) => {
+  const allPages = await Page.findAll();
+  console.log(allPages);
+  res.send(main(allPages));
 });
 
 // post /wiki
